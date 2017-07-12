@@ -1,0 +1,20 @@
+{
+  "name": "news-parser",
+  "version": "1.0.0",
+  "description": "Node js news parser",
+  "main": "server.js",
+  "scripts": {
+    "test": "-test",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "new",
+    "parser",
+    "scraper"
+  ],
+  "author": "Gerardo Grimaldi",
+  "license": "MIT",
+  "dependencies": {
+    "osmosis": "^1.1.4"
+  }
+}
