@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "-test",
-    "start": "node server.js"
+    "start": "nodemon server"
   },
   "keywords": [
     "new",
@@ -15,6 +15,11 @@
   "author": "Gerardo Grimaldi",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.15.3",
+    "mongoose": "^4.11.2",
     "osmosis": "^1.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

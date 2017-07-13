@@ -1,39 +1,27 @@
-var mongoose = require ('mongoose'); ///http://stackoverflow.com/questions/9119648/securing-my-node-js-apps-rest-api///http://comments.gmane.org/gmane.comp.lang.javascript.nodejs/55287///http://stackoverflow.com/questions/16159063/how-to-secure-restful-route-in-backbone-and-express
-var uriString = process.env.MONGOLAB_URI;
-var Crawler = require('crawler').Crawler;
-var express = require('express');
-var jquery = require('jquery');
-var mail = require('./nodemail');
-var valoresSchema = require('./Model/mongoSchema').valoresDolarHoySchema;
-var Valores = mongoose.model('ValoresDolarHoy', valoresSchema);
-var compraDolar;
-var ventaDolar;
-var compraEuro;
-var ventaEuro;
-var compraReal;
-var ventaReal;
-var intervalTime = 900000;
-var work = false;
-var offset = -3;
+'use strict';
 
-mongoose.connect(uriString, function (err, res) {
-    if (err) {
-    console.log ('ERROR connecting to: ' + uriString + '. ' + err);
+const express = require('express'),
+	http = require('http'),
+	https = require('https'),
+	dbConnect = require('./helpers/dbConnect'),
+	api = express();
+
+/*require('./config/config')(api);
+require('./routes/routes')(api);*/
+
+// If dev create https server, in production Heroku handles this
+if (process.env.NODE_ENV === 'development') {
+ https.createServer(credentials, api).listen(process.env.PORT || 3002);
 } else {
-    console.log ('Succeeded connected to: ' + uriString);
+ http.createServer(api).listen(process.env.PORT || 3002);
 }
-});
 
-var app = express();
+console.log('FWTV-API application started on port ' + (process.env.PORT || 3002));
 
-app.configure(function(){
-    app.set('port', process.env.PORT || 3000);
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(express.methodOverride());
-    app.use(app.router);
-});
+// Expose api
+module.exports = exports = api;
 
+/*
 function main() {
     if (work) {
         var day = new Date(new Date( new Date().getTime() + offset * 3600 * 1000).toUTCString().replace( / GMT$/, '' )).getDay();//var day = new Date( new Date().getTime() + offset * 3600 * 1000).toUTCString().replace( / GMT$/, '' ).getDay();//;
@@ -266,4 +254,4 @@ app.get('/stop/:pass', function(req, res) {
 
 app.listen(process.env.PORT, process.env.IP);
 
-console.log('Server HTTP Listening on port ' + process.env.PORT + '...');
+console.log('Server HTTP Listening on port ' + process.env.PORT + '...');*/
