@@ -1,4 +1,4 @@
-![#FWTV](https://image.freepik.com/free-icon/news_318-32311.jpg)
+![#FWTV](https://image.freepik.com/free-icon/news_318-32311.jpg=520x520)
 # API - Press Parser
 
 For development: npm start
