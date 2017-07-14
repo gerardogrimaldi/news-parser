@@ -3,7 +3,7 @@
 const express = require('express'),
 	http = require('http'),
 	https = require('https'),
-	dbConnect = require('./helpers/dbConnect'),
+	dbConnect = require('./helpers/db-connect'),
 	api = express();
 
 /*require('./config/config')(api);
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 console.log('FWTV-API application started on port ' + (process.env.PORT || 3002));
 
 // Expose api
-module.exports = exports = api;
+module.exports = api;
 
 /*
 function main() {

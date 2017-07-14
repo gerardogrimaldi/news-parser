@@ -1,4 +1,5 @@
 'use strict';
+
 const uriString = process.env.MONGOLAB_URI || 'mongodb://localhost:27017',
 	mongoose = require('mongoose');
 
