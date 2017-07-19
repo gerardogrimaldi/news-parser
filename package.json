@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.15.3",
+    "feedparser": "^2.2.1",
     "mongoose": "^4.11.2",
     "osmosis": "^1.1.4"
   },
